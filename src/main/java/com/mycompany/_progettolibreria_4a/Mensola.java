@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany._progettolibreria_4a;
+import eccezioni.*;
 
 /**
  *
@@ -46,7 +47,7 @@ public class Mensola
      * in cui si trovano nell'array
      * @param elencoLibri 
      */
-    public Mensola(Libro[] elencoLibri )
+    public Mensola(Libro[] elencoLibri ) throws EccezionePosizioneNonValida, EccezionePosizioneOccupata
     {
         volumi=new Libro[NUM_MAX_VOLUMI]; //creo arry vuota nella mensola
         
@@ -75,25 +76,19 @@ public class Mensola
         se la posizione è già occupata --> return -2
         se il libro viene posizionato --> return posizione
      */
-    public int setVolume(Libro volume,int posizione)
+    public int setVolume(Libro volume,int posizione) throws EccezionePosizioneNonValida, EccezionePosizioneOccupata
     {
-     /*   if (posizione<0 || posizione>=NUM_MAX_VOLUMI)
-            return -1;  //Posizione non esiste
-      */  
-       
         try
         {
             if (volumi[posizione]!=null)
-                return -2;  //Posizione occupata
+                throw new EccezionePosizioneOccupata();
             volumi[posizione]=new Libro(volume);
             return posizione;
         }
         catch(ArrayIndexOutOfBoundsException e)
         {
-            return -1;
-        }
-        
-        
+            throw new eccezioni.EccezionePosizioneNonValida();
+        } 
     }
     
     /**
