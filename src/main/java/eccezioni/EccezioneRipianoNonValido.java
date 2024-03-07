@@ -8,6 +8,6 @@ package eccezioni;
  *
  * @author gian
  */
-public class EccezioneRipianoNonValido {
+public class EccezioneRipianoNonValido extends Exception{
     
 }
