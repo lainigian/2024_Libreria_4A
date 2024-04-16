@@ -292,6 +292,18 @@ public class App
                         System.out.println("Errore file aperto in lettura!");
                     }
                     break;
+                
+                case 8:              
+                    try 
+                    {
+                        s1.importaCSV(nomeFile);
+                        System.out.println("Importazione avvenuta con successo.");
+                    } 
+                    catch (IOException ex) 
+                    {
+                        System.out.println("Impossibile leggere dal file");
+                    } 
+                    break;
 
                     
             }  
