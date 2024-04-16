@@ -27,7 +27,7 @@ public class App
     {
        
         String[] vociMenu;
-        int numeroVoci=9;
+        int numeroVoci=11;
         vociMenu=new String[numeroVoci];
         Menu menu;
         int voceScelta;
@@ -42,6 +42,7 @@ public class App
         String[] elencoTitoliAutore;
         Libro[] libriPresenti;
         String nomeFile="volumi.csv";
+        String nomeFileBinario="scaffale.bin";
         
         vociMenu[0]="\t--> Esci";
         vociMenu[1]="\t--> Visualizza tutti i volumi presenti";
@@ -52,6 +53,8 @@ public class App
         vociMenu[6]="\t--> Mostra libri presenti in ordine alfabetico di titolo";
         vociMenu[7]="\t--> Esporta i volumi su file CSV";
         vociMenu[8]="\t--> Importa i volumi da file CSV";
+        vociMenu[9]="\t--> Salva dati scaffale";
+        vociMenu[10]="\t--> Carica dati scaffale";
         
         menu=new Menu(vociMenu);
        
@@ -304,8 +307,21 @@ public class App
                         System.out.println("Impossibile leggere dal file");
                     } 
                     break;
+                case 9:
+                
+                    try
+                    {
+                        //da provare
+                        s1.salvaScaffale(nomeFile);
+                        System.out.println("Salvataggio avvenuto correttamente");
+                    } 
+                    catch (IOException ex) 
+                    {
+                        System.out.println("Impossibile salvare su file");
+                    }
+                    break;
+                
 
-                    
             }  
         }while(voceScelta!=0);  
     }

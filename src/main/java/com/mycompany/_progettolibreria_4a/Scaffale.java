@@ -6,7 +6,10 @@ package com.mycompany._progettolibreria_4a;
 
 import eccezioni.EccezionePosizioneNonValida;
 import eccezioni.*;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import utilita.TextFile;
@@ -404,6 +407,13 @@ public class Scaffale
             f1.close();
         }
        
-  
+   }
+   
+   public void salvaScaffale(String fileName) throws FileNotFoundException, IOException
+   {
+       ObjectOutputStream writer=new ObjectOutputStream(new FileOutputStream(fileName));
+       writer.writeObject(this);
+       writer.flush();
+       writer.close();
    }
 }
