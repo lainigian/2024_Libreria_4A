@@ -308,11 +308,10 @@ public class App
                     } 
                     break;
                 case 9:
-                
                     try
                     {
-                        //da provare
-                        s1.salvaScaffale(nomeFile);
+                       
+                        s1.salvaScaffale(nomeFileBinario);
                         System.out.println("Salvataggio avvenuto correttamente");
                     } 
                     catch (IOException ex) 
@@ -320,8 +319,23 @@ public class App
                         System.out.println("Impossibile salvare su file");
                     }
                     break;
-                
+                case 10: 
+                    try 
+                    {
+                        //carica scaffale
+                        s1=s1.caricaScaffale(nomeFileBinario);
+                        System.out.println("Caricamento avvenuto con successo");
+                    } 
+                    catch (IOException ex) 
+                    {
+                        System.out.println("Impossibile leggere da file");
+                    } 
+                    catch (ClassNotFoundException ex) 
+                    {
+                        System.out.println("Impossibile leggere i dati dello scaffale");
+                    }
 
+                    break;
             }  
         }while(voceScelta!=0);  
     }
